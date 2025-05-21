@@ -55,7 +55,7 @@ public class SampleAttack extends AssignmentEndpoint {
       // return failed().feedback("lesson-template.sample-attack.failure-2").build());
     }
 
-    // overly simple example for success. See other existing lesssons for ways to detect 'success'
+    // overly simple example for success. See other existing lessons for ways to detect 'success'
     // or 'failure'
     if (secretValue.equals(param1)) {
       return success(this)
