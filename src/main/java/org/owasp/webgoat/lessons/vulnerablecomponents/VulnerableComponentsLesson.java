@@ -23,6 +23,7 @@
 package org.owasp.webgoat.lessons.vulnerablecomponents;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.NoTypePermission;
 import org.apache.commons.lang3.StringUtils;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AssignmentHints;
@@ -41,6 +42,8 @@ public class VulnerableComponentsLesson extends AssignmentEndpoint {
     XStream xstream = new XStream();
     xstream.setClassLoader(Contact.class.getClassLoader());
     xstream.alias("contact", ContactImpl.class);
+    xstream.addPermission(NoTypePermission.NONE);
+    xstream.allowTypes(new Class[] {ContactImpl.class});
     xstream.ignoreUnknownElements();
     Contact contact = null;
 
